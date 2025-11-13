@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Money Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    
+    
+    
+    
+    
+    
+    
+  <header>
+    <h1>Money Expense Tracker</h1>
+    <p>Simple browser-based expense & income tracker (localStorage)</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <form id="entry-form">
+        <div class="row">
+          <label>Type
+            <select id="type">
+              <option value="expense">Expense</option>
+              <option value="income">Income</option>
+            </select>
+          </label>
+          <label>Amount
+            <input id="amount" type="number" step="0.01" min="0.01" inputmode="decimal" placeholder="0.00" required>
+          </label>
+          <label>Date
+            <input id="date" type="date" required>
+          </label>
+        </div>
+        <div class="row">
+          <label>Category
+            <input id="category" type="text" placeholder="e.g., Food, Salary">
+          </label>
+          <label>Description
+            <input id="description" type="text" placeholder="optional">
+          </label>
+          <button id="add-btn" class="btn btn-primary" type="submit">Add Entry</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="controls">
+      <div class="summary">
+        <div><strong>Total Income:</strong> <span id="total-income">0.00</span></div>
+        <div><strong>Total Expense:</strong> <span id="total-expense">0.00</span></div>
+        <div><strong>Balance:</strong> <span id="balance">0.00</span></div>
+      </div>
+      <div class="actions">
+        <label>Show month
+          <input id="filter-month" type="month">
+        </label>
+        <button id="export-btn" class="btn btn-secondary" type="button">Export JSON</button>
+        <label class="import-label btn btn-ghost">
+          Import
+          <input id="import-file" type="file" accept="application/json">
+        </label>
+        <button id="clear-btn" class="btn btn-danger" type="button">Clear All</button>
+      </div>
+    </section>
+
+    <section class="list-section">
+      <div id="empty-state" class="empty">No entries yet — add your first transaction.</div>
+      <table id="entries-table">
+        <thead>
+          <tr><th>Date</th><th>Type</th><th>Category</th><th>Description</th><th>Amount</th><th></th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <small>Data stored locally in your browser (no server).</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
